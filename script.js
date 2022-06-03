@@ -19,18 +19,26 @@ let Interval;
 
 bStart.onclick = function () {
   Interval = setInterval(timer, 10);
+  bStart.classList.add("hidden");
+  bStop.classList.remove("hidden");
 };
 bStop.onclick = function () {
   clearInterval(Interval);
+  bStart.classList.remove("hidden");
+  bStop.classList.add("hidden");
 };
 bReset.onclick = function () {
   clearInterval(Interval);
-  min = "00";
+  min = "0".padStart(2, "0");
   sec = "00";
   msec = "00";
   elemMsec.innerHTML = msec;
   elemSec.innerHTML = sec;
   elemMin.innerHTML = sec;
+  if (bStart.classList.contains("hidden")) {
+    bStart.classList.remove("hidden");
+    bStop.classList.add("hidden");
+  }
 };
 
 function timer() {

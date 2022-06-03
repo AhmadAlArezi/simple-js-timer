@@ -9,46 +9,44 @@
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 </head>
 
 <body>
 
-    <div class="parent container mx-auto flex flex-col items-center gap-5  justify-center mt-24">
 
-        <div>
 
+
+
+    <div class="parent container mx-auto flex flex-col items-center gap-5  justify-center  mt-3">
+        <h1 class="text-5xl text-emerald-900">Simple Js Timer</h1>
+
+        <div class="flex gap-3 text-center items-center mt-6">
+            <button class="start btn btn-success text-xl">Start</button>
+            <button class="stop btn btn-warning text-xl hidden">Stop</button>
+            <button class="reset btn btn-error text-xl">Reset</button>
             <button class="set btn btn-primary text-xl ">Set</a>
+        </div>
+        <div class="divider"></div>
+        <div class="flex gap-3 text-center ">
+            <span class=" min font-mono text-5xl p-4 bg-neutral rounded-box text-neutral-content">00</span>
+            <span class=" sec font-mono text-5xl p-4 bg-neutral rounded-box text-neutral-content">00</span>
+            <span class=" msec font-mono text-5xl p-4 bg-neutral rounded-box text-neutral-content">00</span>
 
         </div>
-        <div>
-            <button class="start btn btn-secondary text-xl">Start</a>
-                <button class="stop btn btn-secondary text-xl">Stop</a>
-                    <button class="reset btn btn-secondary text-xl">Reset</a>
-        </div>
 
-        <div class="grid grid-flow-col gap-5 text-center  auto-cols-max">
-
-            <div class=" p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="min countdown font-mono text-5xl">
-                    0
-                </span>
-
-            </div>
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="sec countdown font-mono text-5xl">
-                    0
-                </span>
-
-            </div>
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="msec countdown font-mono text-5xl">
-                    0
-                </span>
-
-            </div>
-        </div>
 
     </div>
+
+    <footer class="footer items-center justify-center p-2 bg-primary text-neutral-content absolute bottom-0">
+        <div class="items-center grid-flow-col">
+
+            <p> Made With <lord-icon src="https://cdn.lordicon.com/iwaotjbp.json" trigger="loop"
+                    style="width:50px;height:50px">
+                </lord-icon> by Group 6 </p>
+        </div>
+
+    </footer>
 
     <script src="script.js"></script>
 
