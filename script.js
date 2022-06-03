@@ -5,8 +5,6 @@ let bReset = document.querySelector(".reset");
 
 let dParent = document.querySelector(".parent");
 
-let divSet = document.createElement("div");
-
 let elemMin = document.querySelector(".min");
 let elemSec = document.querySelector(".sec");
 let elemMsec = document.querySelector(".msec");
@@ -16,6 +14,7 @@ let sec = +elemSec.textContent;
 let msec = +elemMsec.textContent;
 
 let Interval;
+let setArray = [];
 
 bStart.onclick = function () {
   Interval = setInterval(timer, 10);
@@ -29,6 +28,8 @@ bStop.onclick = function () {
 };
 bReset.onclick = function () {
   clearInterval(Interval);
+  setArray = [];
+  dParent.innerHTML = "";
   min = "0".padStart(2, "0");
   sec = "00";
   msec = "00";
@@ -67,29 +68,20 @@ function timer() {
 }
 
 bSet.onclick = function () {
-  let test = `<div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+  setArray.push({ min: min, sec: sec, msec: msec });
+  dParent.innerHTML = "";
+  setArray.map((item) => {
+    let div = document.createElement("div");
 
-    <div class="flex flex-col p-2 bg-green-800 rounded-box text-neutral-content">
-        <span class="countdown font-mono text-2xl">
-            <span style="--value:${min};"></span>
-        </span>
-        Min
-    </div>
-    <div class="flex flex-col p-2 bg-green-800 rounded-box text-neutral-content">
-        <span class="countdown font-mono text-2xl">
-            <span style="--value:${sec};"></span>
-        </span>
-        Sec
-    </div>
-    <div class="flex flex-col p-2 bg-green-800 rounded-box text-neutral-content">
-        <span class="countdown font-mono text-2xl">
-            <span style="--value:${msec};"></span>
-        </span>
-        Ms
-    </div>
-</div>
-`;
-  divSet.innerHTML = test;
+    div.classList = "flex gap-3 text-center";
+    dParent.appendChild(div);
 
-  dParent.appendChild(divSet);
+    Object.values(item).forEach((value) => {
+      const span = document.createElement("span");
+      span.classList = "font-mono text-2xl p-2 bg-cyan-700 rounded-box text-neutral-content";
+      span.innerHTML = value;
+      div.appendChild(span);
+    });
+  });
+  console.log(setArray);
 };
